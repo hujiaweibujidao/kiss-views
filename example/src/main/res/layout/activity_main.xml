@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -12,19 +13,55 @@
     tools:context="com.javayhu.kiss.MainActivity">
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <com.javayhu.kiss.views.imageview.CircleImageView
+            android:id="@+id/civ"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/profile"
+            app:civ_border_color="@color/black"
+            app:civ_border_overlay="false"
+            app:civ_border_width="2dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorPrimary">
 
-        <com.javayhu.kiss.views.FadingTextView
+        <com.javayhu.kiss.views.textview.FadingTextView
             android:id="@+id/fadingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_centerInParent="true"
+            android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/dialogbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkDeepOrange"
+        android:onClick="gotoDialog"
+        android:text="dialog"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/badgebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal"
+        android:onClick="gotoBadge"
+        android:text="badge"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

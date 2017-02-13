@@ -1,4 +1,4 @@
-package com.javayhu.kiss.views;
+package com.javayhu.kiss.views.textview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,10 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.javayhu.kiss.views.R;
+
 /**
  * A textview that changes its content automatically every few seconds
  * <p>
- * original: https://github.com/rosenpin/FadingTextView
+ * https://github.com/rosenpin/FadingTextView
  * <p>
  * Updated by hujiawei on 2017/2/11.
  * Created by rosenpin on 12/8/16.

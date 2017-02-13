@@ -24,6 +24,20 @@ dependencies {
 }
 ```
 
+### Views
+
+#### 1.FaddingTextView   2017/2/11
+[https://github.com/rosenpin/FadingTextView](https://github.com/rosenpin/FadingTextView)
+
+#### 2.LovelyDialog    2017/2/11
+[https://github.com/yarolegovich/LovelyDialog](https://github.com/yarolegovich/LovelyDialog)
+
+#### 3.BadgeView     2017/2/12
+[https://github.com/AlexLiuSheng/BadgeView](https://github.com/AlexLiuSheng/BadgeView)
+
+#### 4.DraggableBadgeView      2017/2/13
+[https://github.com/qstumn/BadgeView](https://github.com/qstumn/BadgeView)
+
 ### License
 
 ```
