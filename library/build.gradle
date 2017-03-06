@@ -17,7 +17,7 @@ android {
 
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res-dialog', 'src/main/res-textview', 'src/main/res-imageview']
+            res.srcDirs = ['src/main/res', 'src/main/res-dialog', 'src/main/res-textview', 'src/main/res-imageview', 'src/main/res-toast']
         }
     }
 

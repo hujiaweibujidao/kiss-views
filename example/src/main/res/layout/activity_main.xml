@@ -22,7 +22,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/profile"
+            android:src="@drawable/demo"
             app:civ_border_color="@color/black"
             app:civ_border_overlay="false"
             app:civ_border_width="2dp"/>
@@ -55,6 +55,15 @@
         android:backgroundTint="@color/teal"
         android:onClick="gotoBadge"
         android:text="badge"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/toastbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkGreen"
+        android:onClick="gotoToast"
+        android:text="toast"
         android:textColor="@android:color/white" />
 
 </LinearLayout>
