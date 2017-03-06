@@ -3,8 +3,12 @@ package com.javayhu.kiss.views.toast;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
 import android.support.annotation.CheckResult;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -45,7 +49,7 @@ import com.javayhu.kiss.views.R;
  * created by GrenderG on 2017.
  */
 @SuppressLint("InflateParams")
-public class Toasty {
+public class ToastUtils {
 
     //@formatter:off
     private static final @ColorInt int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
@@ -56,7 +60,7 @@ public class Toasty {
 
     private static final String TOAST_TYPEFACE = "sans-serif-condensed";
 
-    private Toasty() {
+    private ToastUtils() {
     }
 
     public static @CheckResult Toast normal(@NonNull Context context, @NonNull String message) {
@@ -90,7 +94,7 @@ public class Toasty {
     }
 
     public static @CheckResult Toast warning(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, ToastyUtils.getDrawable(context, R.drawable.ic_error_outline),
+        return custom(context, message, getDrawable(context, R.drawable.ic_error_outline),
                 DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
     }
 
@@ -103,7 +107,7 @@ public class Toasty {
     }
 
     public static @CheckResult Toast info(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, ToastyUtils.getDrawable(context, R.drawable.ic_info_outline),
+        return custom(context, message, getDrawable(context, R.drawable.ic_info_outline),
                 DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
     }
 
@@ -116,7 +120,7 @@ public class Toasty {
     }
 
     public static @CheckResult Toast success(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, ToastyUtils.getDrawable(context, R.drawable.ic_check),
+        return custom(context, message, getDrawable(context, R.drawable.ic_check),
                 DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
     }
 
@@ -129,7 +133,7 @@ public class Toasty {
     }
 
     public static @CheckResult Toast error(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, ToastyUtils.getDrawable(context, R.drawable.ic_close),
+        return custom(context, message, getDrawable(context, R.drawable.ic_close),
                 DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
     }
 
@@ -141,7 +145,7 @@ public class Toasty {
     public static @CheckResult Toast custom(@NonNull Context context, @NonNull String message, @DrawableRes int iconRes,
                                             @ColorInt int textColor, @ColorInt int tintColor, int duration,
                                             boolean withIcon, boolean shouldTint) {
-        return custom(context, message, ToastyUtils.getDrawable(context, iconRes), textColor,
+        return custom(context, message, getDrawable(context, iconRes), textColor,
                 tintColor, duration, withIcon, shouldTint);
     }
 
@@ -156,15 +160,15 @@ public class Toasty {
         Drawable drawableFrame;
 
         if (shouldTint)
-            drawableFrame = ToastyUtils.tint9PatchDrawableFrame(context, tintColor);
+            drawableFrame = tint9PatchDrawableFrame(context, tintColor);
         else
-            drawableFrame = ToastyUtils.getDrawable(context, R.drawable.toast_frame);
-        ToastyUtils.setBackground(toastLayout, drawableFrame);
+            drawableFrame = getDrawable(context, R.drawable.toast_frame);
+        setBackground(toastLayout, drawableFrame);
 
         if (withIcon) {
             if (icon == null)
                 throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
-            ToastyUtils.setBackground(toastIcon, icon);
+            setBackground(toastIcon, icon);
         } else
             toastIcon.setVisibility(View.GONE);
 
@@ -177,4 +181,24 @@ public class Toasty {
         return currentToast;
     }
     //@formatter:on
+
+    private static Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
+        final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(context, R.drawable.toast_frame);
+        toastDrawable.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
+        return toastDrawable;
+    }
+
+    private static void setBackground(@NonNull View view, Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+            view.setBackground(drawable);
+        else
+            view.setBackgroundDrawable(drawable);
+    }
+
+    private static Drawable getDrawable(@NonNull Context context, @DrawableRes int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            return context.getDrawable(id);
+        else
+            return context.getResources().getDrawable(id);
+    }
 }
