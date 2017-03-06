@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.javayhu.kiss.TextActivity">
+
+    <com.javayhu.kiss.views.textview.CollapsibleTextView
+        android:id="@+id/collapsibleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+
+        app:collapsedLines="2"
+        app:collapsedText=" Show All"
+        app:expandedText=" Hide"
+        app:suffixColor="#0000ff"
+        app:suffixTrigger="false" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/collapsibleTextView"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary">
+
+        <com.javayhu.kiss.views.textview.FadingTextView
+            android:id="@+id/fadingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

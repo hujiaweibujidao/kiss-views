@@ -19,8 +19,8 @@ import com.javayhu.kiss.views.R;
  * <p>
  * https://github.com/rosenpin/FadingTextView
  * <p>
- * Updated by hujiawei on 2017/2/11.
- * Created by rosenpin on 12/8/16.
+ * Updated by javayhu on 2017/2/11.
+ * Created by rosenpin on 2012/8/16.
  */
 public class FadingTextView extends TextView {
 

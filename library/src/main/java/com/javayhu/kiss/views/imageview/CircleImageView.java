@@ -30,7 +30,7 @@ import com.javayhu.kiss.views.R;
  * 1.remove fill_corlor attribute
  * 2.tutorial: http://www.cnblogs.com/JczmDeveloper/p/4187153.html
  * <p>
- * Updated by hujiawein on 2017/2/12.
+ * Updated by javayhu on 2017/2/12.
  */
 public class CircleImageView extends ImageView {
 
@@ -345,7 +345,6 @@ public class CircleImageView extends ImageView {
     private RectF calculateBounds() {
         int availableWidth = getWidth() - getPaddingLeft() - getPaddingRight();
         int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
-
         int sideLength = Math.min(availableWidth, availableHeight);
 
         float left = getPaddingLeft() + (availableWidth - sideLength) / 2f;

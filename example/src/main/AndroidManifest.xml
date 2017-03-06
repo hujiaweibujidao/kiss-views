@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".DialogActivity" />
         <activity android:name=".BadgeViewActivity" />
+        <activity android:name=".TextActivity"/>
     </application>
 
 </manifest>

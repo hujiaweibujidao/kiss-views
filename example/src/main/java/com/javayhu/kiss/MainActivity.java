@@ -10,23 +10,16 @@ import android.widget.Button;
 import com.javayhu.kiss.views.common.BadgeFactory;
 import com.javayhu.kiss.views.common.DraggableBadgeView;
 import com.javayhu.kiss.views.imageview.CircleImageView;
-import com.javayhu.kiss.views.textview.FadingTextView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private FadingTextView mFadingTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFadingTextView = (FadingTextView) findViewById(R.id.fadingTextView);
-        String[] texts = new String[]{"Hello, World!", "Google returns to China", "Happy new Year"};
-        mFadingTextView.setTexts(texts);
-        mFadingTextView.setTimeout(1000);
-
         CircleImageView civ = (CircleImageView) findViewById(R.id.civ);
+        Button textbutton = (Button) findViewById(R.id.textbutton);
         Button dialogbutton = (Button) findViewById(R.id.dialogbutton);
         Button badgebutton = (Button) findViewById(R.id.badgebutton);
 
@@ -43,5 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoBadge(View view) {
         startActivity(new Intent(this, BadgeViewActivity.class));
+    }
+
+    public void gotoText(View view) {
+        startActivity(new Intent(this, TextActivity.class));
     }
 }

@@ -29,22 +29,15 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+
+    <Button
+        android:id="@+id/textbutton"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary">
-
-        <com.javayhu.kiss.views.textview.FadingTextView
-            android:id="@+id/fadingTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkBlueGrey"
+        android:onClick="gotoText"
+        android:text="text"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/dialogbutton"
